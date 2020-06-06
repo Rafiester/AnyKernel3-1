@@ -1,4 +1,4 @@
-NAME := Clarity-Kernel
+NAME := CAF-Kernel
 
 CODE := Mido
 
