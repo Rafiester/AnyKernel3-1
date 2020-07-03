@@ -306,6 +306,11 @@ if [ "$(cat /proc/version)" != "$(cat $MODDIR/version)" ]; then
 fi;
 EOF
 }
+do_treblecheck() {
+if [ "$(file_getprop /system/build.prop ro.treble.enabled)" != "true" ]; then
+  abort "Non-treble ROMs are unsupported. Aborting...";
+fi
+}
 do_modules() {
   test "$(file_getprop anykernel.sh do.modules)" == 1 || return 1;
   local block modcon moddir modtarget module slot umask;
@@ -419,6 +424,7 @@ setup_env;
 do_devicecheck;
 do_versioncheck;
 do_levelcheck;
+do_treblecheck;
 
 ui_print "Installing...";
 CORE=$($BB grep -oE 'ak.*core.sh' anykernel.sh);
