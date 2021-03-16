@@ -1,4 +1,4 @@
-NAME := CAF-Kernel
+NAME := Avarice-Kernel
 
 CODE := Mido
 
