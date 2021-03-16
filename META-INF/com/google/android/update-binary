@@ -350,6 +350,17 @@ if [ "$(cat /proc/version)" != "$(cat $MODDIR/version)" ]; then
 fi;
 EOF
 }
+do_treblecheck() {
+if [ "$(file_getprop /system/build.prop ro.treble.enabled)" != "true" ]; then
+  abort "Non-treble ROMs are unsupported. Aborting...";
+fi
+}
+do_kernelcheck() {
+[ "$ZIPFILE" =~ "legacy" ] && target_lvl=2 || target_lvl=3
+if ! grep -q "target-level=\"$target_lvl\"" /vendor/etc/vintf/manifest.xml; then
+  abort "Unsupported ROM and kernel combo detected. Aborting..."
+fi
+}
 do_modules() {
   [ "$(file_getprop anykernel.sh do.modules)" == 1 ] || return 1;
   local block modcon moddir modtarget module slot umask;
@@ -466,6 +477,8 @@ setup_env;
 do_devicecheck;
 do_versioncheck;
 do_levelcheck;
+do_treblecheck;
+do_kernelcheck;
 
 ui_print "Installing...";
 CORE=$($BB grep -oE 'ak.*core.sh' anykernel.sh);

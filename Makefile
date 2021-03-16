@@ -1,4 +1,4 @@
-NAME := Jeongyeon-Kernel
+NAME := CAF-Kernel
 
 CODE := Mido
 
