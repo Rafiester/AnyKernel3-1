@@ -14,5 +14,6 @@ $(ZIP):
 clean:
 	@rm -vf *.zip*
 	@rm -vf *.gz-dtb*
+	@rm -vf *.img*
 	@rm -vf modules/vendor/lib/modules/*.ko
 	@echo "Done."
