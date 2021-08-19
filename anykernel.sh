@@ -4,7 +4,7 @@
 ## AnyKernel setup
 # begin properties
 properties() { '
-kernel.string=Avarice Kernel by Rafiester
+kernel.string=Jeongyeon Kernel by @Rafiester
 do.devicecheck=1
 do.modules=0
 do.systemless=1
@@ -14,7 +14,7 @@ device.name1=vayu
 device.name2=bhima
 device.name3=
 device.name4=
-supported.versions=11.0
+supported.versions=11
 supported.patchlevels=
 '; } # end properties
 
