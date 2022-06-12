@@ -38,6 +38,9 @@ set_perm_recursive 0 0 750 750 $ramdisk/init* $ramdisk/sbin;
 ## AnyKernel boot install
 dump_boot;
 
+# Patch
+. $bin/kyriepatch.sh;
+
 write_boot;
 ## end boot install
 
@@ -57,4 +60,3 @@ write_boot;
 
 #flash_boot;
 ## end vendor_boot install
-
