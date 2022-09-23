@@ -14,7 +14,7 @@ device.name1=vayu
 device.name2=bhima
 device.name3=
 device.name4=
-supported.versions=11-12
+supported.versions=11-13
 supported.patchlevels=
 '; } # end properties
 
