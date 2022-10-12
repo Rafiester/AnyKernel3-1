@@ -482,6 +482,9 @@ do_devicecheck;
 do_versioncheck;
 do_levelcheck;
 
+# used by kyriepatch
+export ZIPFILE
+
 ui_print "Installing...";
 CORE=$($BB grep -oE 'ak.*core.sh' anykernel.sh);
 [ -f tools/$CORE ] || $BB ln -s $AKHOME/tools/ak*-core.sh $AKHOME/tools/$CORE;

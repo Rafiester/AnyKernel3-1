@@ -1,11 +1,10 @@
-micode="$(file_getprop /system/build.prop ro.miui.ui.version.code)"
-
 # cleanup it first
 patch_cmdline msm_dsi.phyd_multiplier=10 ""
 
-# begin adding phy dimension multiplier
-if [ "$micode" -gt 12 ]; then
-    ui_print "MIUI 13 (or newer) is detected, setting up panel compatibility...";
+# begin patching
+if contains $ZIPFILE "miui.zip"; then
+    ui_print "Setting up panel compatibility for MIUI...";
     patch_cmdline androidboot.hardware=qcom \
         "androidboot.hardware=qcom msm_dsi.phyd_multiplier=10"
+    ui_print "Done.";
 fi
