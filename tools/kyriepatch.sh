@@ -18,13 +18,13 @@ cmdl_rm() {
 
 patch_mi() {
     # cleanup it first
-    cmdl_rm msm_dsi.phyd_multiplier=10
+    cmdl_rm msm_dsi.phyd_miui=1
 
     local vi=$(file_getprop /system/build.prop ro.system.build.version.incremental)
     if contains "$ZIPFILE" "miui.zip" || contains "$vi" "V13." || contains "$vi" "V14." ; then
         ui_print "MIUI is detected: $vi";
-        ui_print "Setting up panel compatibility...";
-        cmdl_add msm_dsi.phyd_multiplier=10
+        ui_print "Enabling msm_dsi.phyd_miui for MIUI compatibility...";
+        cmdl_add msm_dsi.phyd_miui=1
     fi
 }
 
