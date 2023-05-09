@@ -4,7 +4,7 @@
 ## AnyKernel setup
 # begin properties
 properties() { '
-kernel.string=Nexus Kernel
+kernel.string=AvariceXC Kernel by @Suzurui
 do.devicecheck=1
 do.modules=0
 do.systemless=1
